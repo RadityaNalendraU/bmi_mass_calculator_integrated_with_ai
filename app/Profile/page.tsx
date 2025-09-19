@@ -24,7 +24,7 @@ export default function ProfilePage() {
           {/* Name and tagline */}
           <h1 className="text-4xl font-bold tracking-tight text-slate-800">Raditya Nalendra Utomo</h1>
           <p className="mt-2 text-lg text-slate-600">
-            Full-Stack Developer & AI Innovator
+            Full-Stack Developer & AI Enthusiast
           </p>
         </div>
 
@@ -71,8 +71,7 @@ export default function ProfilePage() {
             <strong>Let&apos;s Connect</strong>
           </h3>
           <p>
-            I am always open to discussing technology, new projects, or collaboration opportunities.
-            Feel free to connect with me through the links below.
+            I'd love to hear from you. Whether it's to discuss technology, new projects, or collaboration, feel free to reach out using the links below.
           </p>
 
           {/* Social media links */}
