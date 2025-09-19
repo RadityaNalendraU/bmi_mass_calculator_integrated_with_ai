@@ -3,13 +3,12 @@
 import { useState } from "react";
 import ReactMarkdown from "react-markdown";
 
-// Tipe data untuk props komponen, sekarang termasuk fungsi callback
 type AiAdvisorProps = {
   bmi: number;
   category: string;
   height: string;
   weight: string;
-  onSuggestionGenerated: (suggestion: string) => void; // Prop baru untuk mengirim data ke parent
+  onSuggestionGenerated: (suggestion: string) => void;
 };
 
 export default function AI_advisor({ 
@@ -44,7 +43,6 @@ export default function AI_advisor({
       if (data.output && Array.isArray(data.output)) {
         const suggestionText = data.output.join("");
         setAiResponse(suggestionText);
-        // Panggil fungsi callback untuk mengirim teks saran ke page.tsx agar bisa disimpan
         onSuggestionGenerated(suggestionText); 
       }
     } catch (err) {
@@ -65,7 +63,8 @@ export default function AI_advisor({
         disabled={isLoading}
         className="w-full bg-slate-800 text-white font-semibold py-3 px-4 rounded-lg hover:bg-slate-900 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-500 disabled:bg-slate-400 disabled:cursor-not-allowed"
       >
-        {isLoading ? "Menganalisis..." : "Generate AI Suggestion & Save to History"}
+        {/* --- PERUBAHAN TEKS TOMBOL DI SINI --- */}
+        {isLoading ? "Menganalisis..." : "Generate AI Suggestion & Update History"}
       </button>
 
       <div className="mt-4 p-4 bg-slate-50 rounded-md min-h-[150px] text-sm text-slate-700">
@@ -82,7 +81,7 @@ export default function AI_advisor({
         )}
         {!isLoading && !error && !aiResponse && (
           <p className="text-slate-400 text-center pt-10">
-            Klik tombol di atas untuk mendapatkan saran dan menyimpannya ke riwayat.
+            Klik tombol di atas untuk mendapatkan saran dan meng-update riwayat.
           </p>
         )}
       </div>

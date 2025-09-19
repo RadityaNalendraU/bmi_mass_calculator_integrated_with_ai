@@ -12,8 +12,8 @@ const Header = () => {
               <Image 
                 src={SBI_noBackground} 
                 alt="Smart BMI Advisor Logo" 
-                width={40} 
-                height={40} 
+                width={60} 
+                height={60} 
                 priority 
               />
               <span>Smart BMI Advisor</span>
@@ -29,7 +29,7 @@ const Header = () => {
             <Link href="/About" className="text-gray-600 transition-colors duration-300 hover:text-indigo-500">
               About
             </Link>
-            <Link href="/profile" className="text-gray-600 transition-colors duration-300 hover:text-indigo-500">
+            <Link href="/Profile" className="text-gray-600 transition-colors duration-300 hover:text-indigo-500">
               Profile
             </Link>
           </div>
