@@ -1,8 +1,8 @@
 "use client";
 
-import { BmiHistoryEntry } from "@/app/page"; // Impor tipe data dari page.tsx
+import { BmiHistoryEntry } from "@/app/page"; // Import data type from page.tsx
 
-// Tipe props diperbarui untuk menerima 'entry' dan fungsi onClick
+// Props type updated to accept 'entry' and onClick functions
 type BmiHistoryCardProps = {
   entry: BmiHistoryEntry;
   onOpenModal: () => void;
@@ -10,7 +10,7 @@ type BmiHistoryCardProps = {
 };
 
 const BmiHistoryCard = ({ entry, onOpenModal, onDelete }: BmiHistoryCardProps) => {
-  // Fungsi baru untuk memetakan teks kategori ke warna
+  // New function to map category text to color
   const getCategoryStyle = (categoryText: string) => {
     switch (categoryText.toLowerCase()) {
       case 'underweight':
@@ -40,11 +40,11 @@ const BmiHistoryCard = ({ entry, onOpenModal, onDelete }: BmiHistoryCardProps) =
         </span>
       </div>
       
-      {/* Bagian bawah kartu sekarang berisi tanggal dan tombol-tombol baru */}
+      {/* The bottom section of the card now contains the date and new buttons */}
       <div className="mt-4 border-t pt-4">
         <p className="text-sm text-gray-500">{entry.date}</p>
         
-        {/* Tombol "Details" dan "Delete" ditambahkan di bawah tanggal */}
+        {/* "Details" and "Delete" buttons are added below the date */}
         <div className="mt-4 flex gap-2">
             <button 
               onClick={onOpenModal}

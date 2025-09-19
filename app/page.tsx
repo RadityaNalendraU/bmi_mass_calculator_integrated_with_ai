@@ -5,7 +5,7 @@ import AI_advisor from '@/components/AI_advisor';
 import BMI_history_card from '@/components/bmi_history_card';
 import History_modal from '@/components/History_modal';
 
-// Tipe data untuk entri history (tidak ada perubahan)
+// Data type for history entries (no change)
 export interface BmiHistoryEntry {
   id: string;
   bmi: number;
@@ -38,8 +38,6 @@ const MainPage = () => {
     return { text: 'Obesity', color: 'text-red-500' };
   };
 
-  // --- PERUBAHAN LOGIKA DIMULAI DI SINI ---
-
   const calculateBmi = () => {
     const h = parseFloat(height);
     const w = parseFloat(weight);
@@ -55,11 +53,11 @@ const MainPage = () => {
     setBmi(finalBmi);
     setError('');
     
-    // LANGKAH 1: Langsung simpan hasil BMI ke riwayat dengan saran kosong
+    // STEP 1: Immediately save the BMI result to history with an empty suggestion
     savePreliminaryHistory(finalBmi);
   };
 
-  // Fungsi baru untuk menyimpan riwayat awal tanpa saran AI
+  // New function to save the initial history without AI suggestion
   const savePreliminaryHistory = (calculatedBmi: number) => {
     const bmiCategory = getBmiCategory(calculatedBmi);
     const newEntry: BmiHistoryEntry = {
@@ -67,30 +65,29 @@ const MainPage = () => {
       bmi: calculatedBmi,
       category: bmiCategory.text,
       date: new Date().toLocaleString('id-ID', { dateStyle: 'long', timeStyle: 'short' }),
-      suggestion: '', // Saran AI sengaja dikosongkan
+      suggestion: '', // AI suggestion is intentionally left empty
     };
     const updatedHistory = [newEntry, ...history];
     setHistory(updatedHistory);
     localStorage.setItem('bmiHistory', JSON.stringify(updatedHistory));
   };
 
-  // Fungsi 'saveHistory' sekarang diubah menjadi 'updateHistoryWithSuggestion'
+  // The 'saveHistory' function is now changed to 'updateHistoryWithSuggestion'
   const updateHistoryWithSuggestion = (suggestion: string) => {
-    // Kita asumsikan entri yang mau di-update adalah yang paling baru (di urutan pertama)
+    // We assume the entry to be updated is the most recent one (at the first position)
     if (history.length === 0) return;
 
-    // Buat salinan dari array riwayat
+    // Create a copy of the history array
     const updatedHistory = [...history];
     
-    // Update properti 'suggestion' dari entri pertama
+    // Update the 'suggestion' property of the first entry
     updatedHistory[0].suggestion = suggestion;
 
-    // Simpan kembali array yang sudah di-update
+    // Save the updated array back
     setHistory(updatedHistory);
     localStorage.setItem('bmiHistory', JSON.stringify(updatedHistory));
   };
 
-  // --- PERUBAHAN LOGIKA BERAKHIR DI SINI ---
 
   const handleDeleteHistory = (id: string) => {
     const updatedHistory = history.filter(entry => entry.id !== id);
@@ -115,7 +112,7 @@ const MainPage = () => {
       <div className="flex flex-col items-center justify-center w-full p-4">
         <h1 className="text-4xl font-bold text-gray-800 mb-8">BMI Calculator</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-4xl">
-          {/* Input & Result Cards (tidak ada perubahan) */}
+          {/* Input & Result Cards (no change) */}
           <div className="bg-white p-8 rounded-xl shadow-lg">
             <h2 className="text-2xl font-semibold text-gray-700 mb-6">Enter Your Details</h2>
             <div className="space-y-6">
@@ -146,7 +143,7 @@ const MainPage = () => {
           </div>
         </div>
         
-        {/* Komponen AI Advisor sekarang akan meng-update riwayat, bukan membuat baru */}
+        {/* The AI Advisor component will now update history, not create a new one */}
         {bmi !== null && (
           <AI_advisor
             bmi={bmi}
@@ -157,7 +154,7 @@ const MainPage = () => {
           />
         )}
         
-        {/* Bagian Riwayat (tidak ada perubahan) */}
+        {/* History Section (no change) */}
         <div className="w-full max-w-4xl mt-12">
           <h2 className="text-2xl font-semibold text-gray-700 mb-4">Calculation History</h2>
           {history.length > 0 ? (
