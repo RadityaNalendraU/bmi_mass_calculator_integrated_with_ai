@@ -71,7 +71,7 @@ export default function ProfilePage() {
             <strong>Let&apos;s Connect</strong>
           </h3>
           <p>
-            I'd love to hear from you. Whether it's to discuss technology, new projects, or collaboration, feel free to reach out using the links below.
+            I am available to discuss technology, projects, and collaboration. Please connect with me via the links provided.
           </p>
 
           {/* Social media links */}
