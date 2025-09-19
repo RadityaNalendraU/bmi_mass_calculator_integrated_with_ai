@@ -22,7 +22,7 @@ export default function ProfilePage() {
           />
 
           {/* Name and tagline */}
-          <h1 className="text-4xl font-bold tracking-tight text-slate-800">Raditya Nalendra</h1>
+          <h1 className="text-4xl font-bold tracking-tight text-slate-800">Raditya Nalendra Utomo</h1>
           <p className="mt-2 text-lg text-slate-600">
             Full-Stack Developer & AI Innovator
           </p>
