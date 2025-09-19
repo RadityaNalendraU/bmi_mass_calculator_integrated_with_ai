@@ -64,7 +64,7 @@ const MainPage = () => {
       id: new Date().toISOString(),
       bmi: calculatedBmi,
       category: bmiCategory.text,
-      date: new Date().toLocaleString('id-ID', { dateStyle: 'long', timeStyle: 'short' }),
+      date: new Date().toLocaleString('en-EN', { dateStyle: 'long', timeStyle: 'short' }),
       suggestion: '', // AI suggestion is intentionally left empty
     };
     const updatedHistory = [newEntry, ...history];
