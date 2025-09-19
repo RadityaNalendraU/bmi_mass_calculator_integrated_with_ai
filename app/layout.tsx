@@ -18,8 +18,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} flex flex-col min-h-screen bg-gray-50`}>
+      <body className={`${inter.className} flex flex-col min-h-screen bg-slate-50`}>
         <Header />
+        {/* --- The change is on this line --- */}
         <main className="flex-grow container mx-auto p-4 md:p-8">
           {children}
         </main>
