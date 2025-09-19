@@ -25,7 +25,7 @@ export async function POST(req: NextRequest) {
       Generate a concise response in under 600 characters.
       You are a helpful and encouraging fitness and nutrition assistant.
       A user has provided their health metrics. Based on their BMI of ${bmi} (which is categorized as ${category}), height of ${height} cm, and weight of ${weight} kg, provide a concise and actionable set of suggestions.
-      Organize your response into two sections using Markdown headings: '### Workout Suggestions' and '### Meal Plan'.
+      Organize your response into two sections using Markdown headings: '### **-Workout Suggestions' and '### **-Meal Plan'.
       The advice should be practical for a beginner.
     `;
 
